@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:wght@200;400;500;700&display=swap');
+
+* {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+}
+
+@mixin center-img {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    z-index: 1;
+    width: 100%;
+    height: 90vh;
+    background-image: url("../assets/img/hero-bg.jpg");
+    @include center-img();
+    background-attachment: fixed;
+
+    nav {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 20px;
+            margin: 0;
+            
+            li {
+                list-style-type: none;
+                text-transform: uppercase;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+main {
+    background-color: white;
+    position: relative;
+    z-index: 999;
+
+    .article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        height: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+
+        img {
+            max-height: 40px;
+            max-width: max-content;
+        }
+
+        span {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        p {
+            text-align: left;
+            font-weight: 200;
+            opacity: 0.65;
+            font-size: 16px;
+        }
+    }
+
+    .under-article {
+        height: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+    
+        img {
+            height: 10px;
+            margin-top: -2px;
+        }
+    }
+
+    .new-gen {
+        padding: 100px;
+        background-color: #F7F7F7;
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+
+    .grid-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "first first vintage-olivia"
+            "boriosa second second"
+            "third retro-bike fourth";
+
+        .img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-height: 120px;
+            }
+        }
+
+        .first { 
+            grid-area: first;
+            background-image: url("../assets/img/left-box-1.jpg");
+        }
+
+        .vintage-olivia { 
+            grid-area: vintage-olivia;
+            @include flex-column();
+
+            .under-article {
+                background-image: url("../assets/img/seat-red.jpg");
+            }
+        }
+
+        .boriosa { 
+            grid-area: boriosa;
+            @include flex-column();
+
+            .under-article {
+                background-image: url("../assets/img/seat-black.jpg");
+            }
+        }
+
+        .second {
+            grid-area: second;
+            background-image: url("../assets/img/left-box-2.jpg");
+        }
+        
+        .third {
+            grid-area: third;
+            background-image: url("../assets/img/red-frame.jpg");
+        }
+
+        .retro-bike {
+            grid-area: retro-bike;
+            @include flex-column();
+
+            .under-article {
+                background-image: url("../assets/img/chrome-wheels.jpg");
+            }
+        }
+
+        .fourth {
+            grid-area: fourth;
+            background-image: url("../assets/img/red-bike.jpg");
+        }
+    }
+
+    .twitter {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        @include flex-column();
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+
+        article {
+            @include flex-column();
+            align-items: center;
+
+            h1 {
+                font-size: 20px;
+                font-weight: 700;
+
+                span {
+                    font-weight: 700;
+                    opacity: 0.5;
+                }
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 20px;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .gallery-shop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        article {
+            height: 600px;
+
+            div {
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 50%;  
+                width: 50%;
+                float: left;
+            }
+        }
+
+        .left {
+            div:nth-child(1) {
+                background-image: url("../assets/img/l1.jpg");
+            }
+
+            div:nth-child(2) {
+                float: right;
+                background-image: url("../assets/img/l2.jpg");
+            }
+
+            div:nth-child(3) {
+                background-image: url("../assets/img/l3.jpg");
+                width: 100%;
+            }
+        }
+
+        .middle {
+            div {
+                height: 100%;
+            }
+
+            div:nth-child(1) {
+                background-image: url("../assets/img/l4.jpg");
+            }
+        
+            div:nth-child(2) {
+                background-image: url("../assets/img/l5.jpg");
+            }
+        }
+
+        .right {
+            div {
+
+            }
+
+            div:nth-child(1) {
+                background-image: url("../assets/img/l6.jpg");
+                width: 100%;
+            }
+
+            div:nth-child(2) {
+                background-image: url("../assets/img/l7.jpg");
+            }
+
+            div:nth-child(3) {
+                background-image: url("../assets/img/l8.jpg");
+            }
+        }
+    }
+
+    .to-shop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        width: 100%;
+        background-color: #282F35;
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            padding: 0.8em 3em;
+            border: 1px solid white;
+        }
+    }
+
+    .contact {
+        padding-top: 110px;
+        padding-bottom: 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            opacity: 0.5;
+            font-style: italic;
+            font-size: 26px;
+        }
+
+        form {
+            display: flex;
+            gap: 2px;
+            height: 50px;
+            width: 20%;
+
+            input {
+                margin: 0;
+                height: calc(100% - 4px);
+                float: left;
+                width: 70%;
+                padding: 0 10px 0 10px;
+                font-style: italic;
+            }
+
+            button {
+                height: 100%;
+                width: 25%;
+                background-color: #5ec29d;
+                border: none;
+                color: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        .grid-gallery {
+            grid-template-areas: none;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            > div {
+                grid-area: auto !important;
+                height: 600px;
+            }
+        }
+
+        .gallery-shop {
+            grid-template-columns: none;
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+}
+
+footer {
+    background-color: #F7F7F7;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 220px;
+    padding: 0 10% 0 10%;
+
+    div {
+        display: flex;
+        justify-content: center;
+
+        p {
+            color: rgba($color: #000000, $alpha: 0.5);
+
+            span {
+                color: black;
+            }
+        }
+    }
+
+    .address {
+        align-items: flex-start;
+        flex-direction: column;
+
+        h3, p {
+            margin: 5px;
+        }
+
+        h3 {
+            font-weight: bold;
+            opacity: 0.5;
+        }
+    }
+
+    .logo {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .info {
+        align-items: flex-end;
+        flex-direction: column;
+
+        div {
+            align-items: center;
+
+            p {
+                margin-right: 10px;
+            }
+        }
+    }
+}
